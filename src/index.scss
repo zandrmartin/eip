@@ -1,0 +1,86 @@
+$textcolor: #ccc;
+$darktext: darken($textcolor, 20%);
+$darkgray: #333;
+$lightgray: #444;
+$blue: #369;
+$padding: 12px;
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  color: $textcolor;
+}
+
+div#titlebar {
+  -webkit-app-region: drag;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25px;
+}
+
+div#app {
+  display: grid;
+  grid-template-columns: 20% auto;
+  grid-template-rows: auto 50px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+div#sidebar {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  padding-top: 25px;
+  background-color: $lightgray;
+}
+
+div#chatwindow {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  padding: $padding;
+  background-color: $darkgray;
+  overflow-y: auto;
+}
+
+div#chatinputbox {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  padding: $padding;
+  background-color: $darkgray;
+
+  & > input {
+    background-color: $lightgray;
+    width: 100%;
+    box-sizing: border-box;
+    color: $darktext;
+    padding: 0.3em 0.5em;
+    border-radius: 0.3em;
+    border: none;
+    font-size: 16px;
+
+    &:focus {
+      outline: none;
+      color: $textcolor;
+    }
+  }
+}
+
+.connection-label,
+.channel-label {
+  padding: 0 $padding;
+  cursor: pointer;
+
+  &.active {
+    background-color: lighten($lightgray, 20%);
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "eip",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "dependencies": {
+    "electron": "^1.7.10",
+    "irc": "^0.5.2"
+  },
+  "devDependencies": {
+    "prettier": "^1.9.2"
+  },
+  "scripts": {
+    "build": "cd src && elm-make elm/Eip.elm --output=elm.js && cd -",
+    "start": "npm run build && electron ."
+  },
+  "author": "",
+  "license": "GPL-3.0"
+}
